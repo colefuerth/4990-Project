@@ -135,3 +135,6 @@ dmypy.json
 *.fdb_latexmk
 *.fls
 *.synctex.gz
+
+# lock files
+\.~lock.*#
