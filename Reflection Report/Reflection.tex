@@ -1,0 +1,92 @@
+\documentclass{article}
+
+\usepackage{mathptmx}                                   % Times New Roman
+\usepackage{hyperref}                                   % hyperlinks
+\usepackage{setspace}                                   % single line spacing
+\usepackage[letterpaper, total={7in, 8.5in}]{geometry}  % the awkward ass margins they used
+
+\pagenumbering{gobble}
+\fontfamily{ptm}
+
+\begin{document}
+
+
+{
+\centering
+\fontsize{16}{18}\selectfont
+\textbf{Final Reflection Report}
+\par
+}
+
+\vspace{0.5cm}
+\raggedright
+
+{
+    \fontsize{12}{14}\selectfont
+    \textbf{I. General Information}
+    \par \vspace{0.1cm}
+    \fontsize{12}{14}\selectfont
+    \begin{tabular}{ll}
+        Project Title:  & \href{https://github.com/colefuerth/AI-Characterization}{AI-Based Battery Characterization and SoC Estimation} \\
+        Submitted by:   & \href{https://github.com/colefuerth/}{Cole Fuerth} and \href{https://github.com/Matp101}{Mathew Pellarin}      \\
+        Submitted to:   & Dr. Arunita Jaekel                                                                                             \\
+        Supervisor(s):  & Dr. Bala Balasingam and Dr. Arunita Jaekel                                                                     \\
+        Date Submitted: & 2023-03-10                                                                                                     \\
+    \end{tabular}
+}
+
+\vspace{0.5cm}
+
+\fontsize{12}{14}\selectfont
+\textbf{II. Discuss your accomplishments and experience in the project. You should comment on the following areas. (Please use additional pages, as needed.)}
+\vspace{0.5cm}
+
+\textbf{(a)} Describe your most important accomplishments in this project. What milestones have been achieved. What remains to be done. \textit{(200 - 300 words)}.
+
+% 10pt times new roman, single line spacing
+% \fontsize{10}{12}\selectfont
+
+\vspace{0.5cm}
+
+% 292 words
+\begin{singlespace}
+    \fontsize{10}{12}\selectfont
+    Our undertaking for this project was not insignificant, and consisted of a few major components, each of which were their own accomplishments. The two largest accomplishments were the creation of a backend to handle the characterization of batteries on a large scale, and the creation of a neural network to predict the parameters for a battery based on real-world usage. The database is designed with the intention of serializing cells actively in production, to store unique usage data on each, collected from devices that are served by the API. This allows for scaleability and the employment of dynamic algorithms to provide intelligent characterization to clients on a large scale. The neural network is still in-progress, but there is a lot of progress that can be shown. As of now, the cloud service is designed using a characterization algorithm made by Dr. Bala and his talented research team, but this algorithm, being based on Least Squares, can be touchy with real-world data. The neural network is designed to be a drop-in replacement for the hard-coded method, that provides estimations on smaller volumes of messy data, much faster than the Least Squares method. To follow these two major accomplishments, a number of smaller, more atomic milestones can be noted. We began by constructing a battery from 36 Molicel 21700 Li-Ion cells in a 12S3P configuration. These cells were connected to an intelligent Battery Management System (BMS), and a Raspberry Pi read live telemetry from the BMS over UART and uploaded it to the cloud database for later analysis. We also custom-made a dataset using real current vectors collected in the field fed through a battery simulator developed during the summer using Dr. Bala's algorithm. Furthermore, a number of NN models were developed and tested.
+\end{singlespace}
+
+\vspace{0.5cm}
+
+\textbf{(b)} Reflect on the work breakdown structure and timeline given in your project description. Did your project progress according to what was indicated? Discuss any deviations from the WBS that was projected. \textit{(100 - 200 words)}.
+
+\vspace{0.5cm}
+
+% 127 words
+\begin{singlespace}
+    \fontsize{10}{12}\selectfont
+    Although a genuine attempt was made to follow the timeline in the WBS, the dataset creation took significantly longer than anticipated. This was not helped by the rapidly changing Machine Learning models we were imagining, as this is a \textit{very} difficult characterization problem, where feature extraction is not a simple task, and as such, the dataset had to be curated to be both easy to collect and store from embedded devices, and (relatively) computationally simple to preprocess. The database creation and API that upload collected data to an MQTT server went well, and was finished almost immediately. Due to a lack of time and availability, as well as the scope of this progress, the going is slow on the neural network, but it is still in progress.
+\end{singlespace}
+
+\pagebreak
+
+\textbf{(c)} Discuss your experience working on the project. What went right? What went wrong? Any other comments. \textit{(100 - 200 words)}.
+
+\vspace{0.5cm}
+
+% 199 words
+\begin{singlespace}
+    \fontsize{10}{12}\selectfont
+    Working on this project has been a rollercoaster, to be sure. Firstly, it should be noted that this project was pursued as both a passion project, and as a joint research venture with Dr. Bala of the Electrical Engineering department, and as such, was a \textit{significant} undertaking. The creation of the backend's database and MQTT components went relatively smoothly. Moving on, both the battery assembly/data collection, and the AI components seemed to encounter every possible problem they could. Concerning the battery, we had wiring issues, discharging problems, the wrong BMS was ordered and had to be adapted to work for this use-case, and actual data collection was a problem on its own. The AI is the theoretical portion of this project, and needed a tailored dataset created for this use-case, along with custom loss functions and a lengthy preprocessing algorithm. Traditional AI models are not typically designed with this use-case, so the model was adapted to look at battery data as a characterization, almost as a 4-dimensional image. This was a very difficult problem, and the model was not able to be trained to a satisfactory level, but the model is still in progress, and is being worked on.
+\end{singlespace}
+
+\vspace{0.5cm}
+
+\textbf{(d)} Discuss your key takeaways from this experience. What is the most important thing your learned? If you could go back, would you change anything? Explain. \textit{(200 - 300 words)}.
+
+\vspace{0.5cm}
+
+\begin{singlespace}
+    \fontsize{10}{12}\selectfont
+    As this project is significant, with many different components split across us two group members, there are a lot of takeaways from this project. The first takeaway was learning how to implement a server-side backend efficiently and effectively. Databases were creataed and queried with Python to read and write data. AWS services were investigated, and this service can be migrated to AWS for scaleability later. Another significant learning experience is the application of a Neural Network to real-world data. The dataset should have been created right away, but a significant amount of time was wasted working on theoretical neural networks that had no data to test or train on. This process is moving along, but is stunted by a significant courseload this semester. A final takeaway is the application of real-world data to theoretical concepts. There is a significant amount of theory behind Dr. Bala's research, which makes up the backbone of this entire project. We owe the "cool" factor of this project to him, as this was his idea to try applying an AI approach to his work. Applying theory to real-world is a difficult task, and this project has been a great learning experience in that regard. If we did this again, we would definitely start sooner, and make sure there was a more concrete plan for the flow of the project, and that the theory was applied to real-world data as soon as possible.
+\end{singlespace}
+
+\end{document}
