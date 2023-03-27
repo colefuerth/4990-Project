@@ -1,0 +1,43 @@
+# 4990 Final Presentation
+
+- 10 min time limit
+
+- [x] Title Slide
+- [x] Introductions
+  - [x] cole mat bala and the team in general
+- [x] Underlying Concepts
+  - [x] why do we care about batteries
+  - [x] OCV curves
+  - [x] k-parameters
+  - [x] characterization
+- [x] What is the underlying problem we are trying to solve
+  - [x] why characerization is important
+  - [x] characterization requires a lot of time and costly equipment
+  - [x] characterization on embedded devices is difficult
+  - [x] large scale deployment of characterization is difficult
+  - [x] Reuse of Batteries
+- [ ] The starting point
+  - [ ] ELEC8900
+  - [ ] CloudBFG
+  - [ ] BattSim
+- [x] Why an AI can contribute to this problem
+  - [x] characterization is hard but if an AI can do it from incomplete data it would be a huge step forward
+  - [x] it can be made iteratively more accurate
+- [ ] How was the AI implemented (the initial idea)
+  - [ ] we started with a few nonsense models that obvs didnt work
+  - [ ] The main idea was to use a CNN and encode the data as a kind of genome to be fed into the CNN
+  - [ ] basically narrowed it down to a characterization model
+- [x] Implementation
+  - [x] Devices
+    - [x] Raspberry pi
+      - [x] Connects to BMS
+      - [x] Every Second
+  - [x] Communiction
+    - [x] Serial
+      - [x] BMS
+      - [x] Raspberry pi
+    - [x] MQTT
+      - [x] Raspberry pi
+      - [x] Cloud
+  - [x] API
+  - [x] Database?
